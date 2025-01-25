@@ -68,75 +68,26 @@ const images = [
   const gallery = document.querySelector(".gallery")
   console.log(gallery);
   
-  gallery.style.cssText = `
- padding: 24px 156px;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-`;
-
   const markup = images.map((image)=>`<li class="gallery-item">
     <a class="gallery-link" href="large-image.jpg">
-        <img class="gallery-image" style="width:360px; height:200px;" src=${image.preview} data-source=${image.original} alt=${image.description}/>
+        <img class="gallery-image" src=${image.preview} data-source=${image.original} alt=${image.description}/>
         </a>
         </li>`).join("");
     
         gallery.insertAdjacentHTML("afterbegin", markup);
         console.log(gallery);
 
-/*  style="width:${width}px; height:${height}px; background: ${newColor};"   */
-
-
  
 gallery.addEventListener ("click", e => {
+    e.preventDefault() 
     if(e.target === e.currenTarget) return;
 
-    /*console.log(image.original);*/
+    const liElem = e.target.closest('li')
+    
+    const instance = basicLightbox.create(`
+        <img src="${e.target.dataset.source}" width="1112" height="640">
+    `)
+    instance.show()
+    
 }); 
 
-
-const instance = basicLightbox.create(`
-    <div class="modal" style="width:1112px; height:640px;">
-        <p>
-            Your first lightbox with just a few lines of code.
-            Yes, it's really that simple.
-        </p>
-    </div>
-`,
-{
-    closable: true,
-},
-)
-
-instance.show()
-
-
-
-  /*;
-
-  const [imOne, imTwo, imThree, imFour, imFive, imSix, imSeven, imEight, imNine] = images;
-  console.log(imOne, imTwo, imThree, imFour, imFive, imSix, imSeven, imEight, imNine);
-
-  function imageTemplate(image) {
-    return (`<li class="gallery-item">
-        <a class="gallery-link" href="large-image.jpg">
-        <img class="gallery-image" src=${image.preview} data-source=${image.original} alt=${image.description}/>
-        </a>
-        </li>`);
-}
-
-
-function imagesTemplate(images) {
-    const markup = images.map(imageTemplate).join("\n");
-    gallery.insertAdjacentHTML("afterbegin", markup);
-    console.log(gallery);
-}
-
-
-
-
-*/
-
-
-/*   */

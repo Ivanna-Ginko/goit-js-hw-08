@@ -1,7 +1,5 @@
 
-/*@page { 
-    size: landscape; 
-}
+
 
 
 .gallery {
@@ -12,9 +10,15 @@
     gap: 24px;
 }
 
-
 .gallery-image {
     width: 360px;
-    height: auto;
+    height: 200px;
+    transition-property: width, heigth;
+    text-decoration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-    */
+
+.gallery-image:hover {
+    width: 376px;
+    height: 208px;
+}
