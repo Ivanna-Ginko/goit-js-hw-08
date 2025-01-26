@@ -80,7 +80,7 @@ const images = [
  
 gallery.addEventListener ("click", e => {
     e.preventDefault() 
-    if(e.target === e.currenTarget) return;
+    if(e.target.nodeName !== "IMG") return;
 
     const liElem = e.target.closest('li')
     
