@@ -69,8 +69,8 @@ const images = [
   console.log(gallery);
   
   const markup = images.map((image)=>`<li class="gallery-item">
-    <a class="gallery-link" href="large-image.jpg">
-        <img class="gallery-image" src=${image.preview} data-source=${image.original} alt=${image.description}/>
+    <a class="gallery-link" href="${image.original}">
+        <img class="gallery-image" src="${image.preview}" data-source="${image.original}" alt="${image.description}"/>
         </a>
         </li>`).join("");
     
